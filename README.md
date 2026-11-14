@@ -141,7 +141,7 @@ curl -X POST -H "X-Feeder-Key: <anahtar>" http://<ip>/feed
 PawsAndPlay/
 ├── Config/                  # Oyun ayarları (puan, porsiyon, reklam)
 ├── Content/                 # Harita, karakter ve materyaller
-├── Docs/                    # Proje formu (docx + pdf)
+├── Docs/                    # Proje formu (docx + pdf), ekran görüntüleri
 ├── Hardware/
 │   └── ESP32Feeder/         # ESP32 firmware'i
 ├── Source/
@@ -182,7 +182,18 @@ PawsAndPlay/
 
 ## Görseller ve Testler
 
-_Ekran görüntüleri ve test bulguları eklenecek (en az 3 kullanıcı, anonim kodlarla)._
+Aşağıdaki görüntüler simülasyon modunda, bir porsiyonluk tam döngüyü baştan sona gösterir.
+
+| | |
+|---|---|
+| ![Başlangıç](Docs/Screenshots/1_baslangic.jpg) | ![Reklam](Docs/Screenshots/2_reklam.jpg) |
+| **1. Başlangıç:** Sol üstte puan ve ilerleme çubuğu, sağ üstte cihaz durumu, altta son mesaj ve tuş ipuçları. Altın renkli silindirler toplanabilir mama taneleri. | **2. Reklam:** [E] ile açılan tam ekran reklam ve geri sayım. Bitince +5 puan, ardından 30 sn bekleme. |
+| ![Hazır](Docs/Screenshots/3_hazir.jpg) | ![Mama döküldü](Docs/Screenshots/4_mama_dokuldu.jpg) |
+| **3. Hazır:** 10 puana ulaşınca ilerleme çubuğu yeşile döner ve “Hazır! [F] ile 1 porsiyon dök” yazar. | **4. Mama döküldü:** [F] sonrası puan düşer, “Gönderilen” sayacı artar. Gerçek cihazda bu anda servo kapağı açar. |
+
+**Görsel dil:** Koyu yarı saydam paneller üzerinde krem metin; turuncu = eylem ve ilerleme, yeşil = hazır / çevrimiçi, kırmızı = çevrimdışı / hata.
+
+**Testler:** Kullanıcı testi henüz yapılmadı (Üretim ve test aşaması, 16.11–13.12.2026). Plan: en az 3 hedef kullanıcı (K1, K2, K3) yönlendirme olmadan “Mama kabına bir porsiyon mama dök” görevini yapar; ilk porsiyona kadar geçen süre, takılınan adımlar ve arayüz mesajlarının doğru yorumlanması kaydedilir.
 
 ## Kaynaklar ve Beyanlar
 
