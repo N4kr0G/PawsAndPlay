@@ -165,6 +165,8 @@ PawsAndPlay/
 - [ ] En az 3 kullanıcı ile test ve düzeltmeler.
 - [ ] Paketlenmiş sürüm, ekran görüntüleri ve tanıtım videosu.
 
+Donanım görevlerinin adım adım listesi: [Docs/Kaan_Gorevleri.md](Docs/Kaan_Gorevleri.md)
+
 | Aşama | Sorumlu | Durum |
 |---|---|---|
 | Araştırma | Gürkan, Kaan | Tamamlandı |
