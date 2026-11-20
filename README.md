@@ -181,7 +181,7 @@ Her hafta iki üyenin her biri kendi hesabıyla en az 2 anlamlı commit gönderi
 
 | Hafta | Tarih | Gürkan (oyun) | Kaan (donanım) | Hafta sonu çıktısı | Durum |
 |---|---|---|---|---|---|
-| 9 | 16–22 Kas | Puanların kaydedilmesi; mama tanesi toplama sesi ve efekti | ESP32'yi ağa bağlayıp `/status` ve `/feed` testi; servo bağlantı şeması | Kart gerçek ağda çalışıyor | Sürüyor |
+| 9 | 16–22 Kas | ✅ Puanların kaydedilmesi; ✅ mama tanesi toplama sesi ve efekti | ESP32'yi ağa bağlayıp `/status` ve `/feed` testi; servo bağlantı şeması | Kart gerçek ağda çalışıyor | Sürüyor (oyun tarafı tamam) |
 | 10 | 23–29 Kas | Başlangıç menüsü ve “nasıl oynanır” ekranı; arayüz okunabilirlik düzeltmeleri | Porsiyon kalibrasyonu (`OPEN_MS`); kap ve kapak montajı | Kap tek porsiyon döküyor | Yapılacak |
 | 11 | 30 Kas–6 Ara | Oyunu gerçek cihaza bağlama; çevrimdışı ve bekleme mesajlarını iyileştirme | Uçtan uca deneme (oyun → servo); çevrimdışı senaryosu testi | Tam döngü gerçek kapla çalışıyor | Yapılacak |
 | 12 | 7–13 Ara | Kullanıcı testi (K1–K3): süre, takılma noktaları; bulguları README'ye yazma | Test sırasında donanım gözlemi; mama sıkışması vb. düzeltmeler | Test bulguları kayıtlı | Yapılacak |
@@ -195,7 +195,7 @@ Her hafta iki üyenin her biri kendi hesabıyla en az 2 anlamlı commit gönderi
 
 - Reklam **simüle** edilir (5 sn sayaç).
 - Oyun ve ESP32 **aynı ağda** olmalı. Gerçek uzak erişim için port yönlendirme, tünel veya aracı bir sunucu gerekir.
-- Puanlar kaydedilmez; oyun kapanınca sıfırlanır.
+- Puanlar yalnızca bu bilgisayarda kaydedilir (`Saved/SaveGames/Paws.sav`); hesap veya bulut kaydı yoktur.
 - ESP32 günlük sayacı gece yarısı değil, açılıştan itibaren 24 saatte bir sıfırlanır.
 
 ## Görseller ve Testler
