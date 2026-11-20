@@ -171,9 +171,25 @@ Donanım görevlerinin adım adım listesi: [Docs/Kaan_Gorevleri.md](Docs/Kaan_G
 |---|---|---|
 | Araştırma | Gürkan, Kaan | Tamamlandı |
 | Tasarım | Gürkan, Kaan | Tamamlandı |
-| İlk prototip | Gürkan (oyun), Kaan (donanım) | Sürüyor |
-| Üretim ve test | Kaan (donanım), Gürkan (oyun) | Yapılacak |
+| İlk prototip | Gürkan (oyun), Kaan (donanım) | Tamamlandı (ara değerlendirme: `12ddd1b`) |
+| Üretim ve test | Kaan (donanım), Gürkan (oyun) | Sürüyor |
 | Final | Gürkan, Kaan | Yapılacak |
+
+### Finale Kadar Haftalık Plan
+
+Her hafta iki üyenin her biri kendi hesabıyla en az 2 anlamlı commit gönderir.
+
+| Hafta | Tarih | Gürkan (oyun) | Kaan (donanım) | Hafta sonu çıktısı | Durum |
+|---|---|---|---|---|---|
+| 9 | 16–22 Kas | Puanların kaydedilmesi; mama tanesi toplama sesi ve efekti | ESP32'yi ağa bağlayıp `/status` ve `/feed` testi; servo bağlantı şeması | Kart gerçek ağda çalışıyor | Sürüyor |
+| 10 | 23–29 Kas | Başlangıç menüsü ve “nasıl oynanır” ekranı; arayüz okunabilirlik düzeltmeleri | Porsiyon kalibrasyonu (`OPEN_MS`); kap ve kapak montajı | Kap tek porsiyon döküyor | Yapılacak |
+| 11 | 30 Kas–6 Ara | Oyunu gerçek cihaza bağlama; çevrimdışı ve bekleme mesajlarını iyileştirme | Uçtan uca deneme (oyun → servo); çevrimdışı senaryosu testi | Tam döngü gerçek kapla çalışıyor | Yapılacak |
+| 12 | 7–13 Ara | Kullanıcı testi (K1–K3): süre, takılma noktaları; bulguları README'ye yazma | Test sırasında donanım gözlemi; mama sıkışması vb. düzeltmeler | Test bulguları kayıtlı | Yapılacak |
+| 13 | 14–20 Ara | Test bulgularına göre düzeltmeler; sahne ve mama tanesi görsel iyileştirmesi | Donanım düzeltmeleri; kabın son hali ve fotoğrafları | Düzeltmeler tamamlandı | Yapılacak |
+| 14 | 21–27 Ara | Paketlenmiş sürüm (.exe); temiz bilgisayarda kurulum denemesi; final ekran görüntüleri | 60–90 sn gösterim videosu (oyun + dökülen mama) | Final paketi hazır | Yapılacak |
+| 15–16 | 28 Ara–8 Oca | README ve formun son hali, katkı ve YZ beyanları, `v1.0` sürüm etiketi | Sunum provası; donanımın sunuma hazırlanması | Final teslim ve sunum | Yapılacak |
+
+**Risk:** Gerçek kapla çalışan döngü 11. haftaya yetişmezse sunumda simülasyon modu ve önceden çekilmiş cihaz videosu kullanılır.
 
 ## Bilinen Sınırlılıklar
 
