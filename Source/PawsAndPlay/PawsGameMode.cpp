@@ -1,6 +1,7 @@
 ﻿#include "PawsGameMode.h"
 #include "Kibble.h"
 #include "PawsPlayerController.h"
+#include "PawsSaveGame.h"
 #include "GameFramework/PlayerStart.h"
 #include "Kismet/GameplayStatics.h"
 #include "HttpModule.h"
@@ -23,6 +24,12 @@ APawsGameMode::APawsGameMode()
 void APawsGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (const UPawsSaveGame* Save = Cast<UPawsSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlot, 0)))
+	{
+		Points = Save->Points;
+		PortionsSent = Save->PortionsSent;
+	}
 
 	if (AActor* Start = UGameplayStatics::GetActorOfClass(this, APlayerStart::StaticClass()))
 	{
@@ -86,8 +93,17 @@ void APawsGameMode::WatchAd()
 void APawsGameMode::OnAdFinished()
 {
 	Points += AdReward;
+	SaveProgress();
 	NextAdTime = GetWorld()->GetTimeSeconds() + AdCooldown;
 	Message = FString::Printf(TEXT("Reklam için teşekkürler! +%d puan"), AdReward);
+}
+
+void APawsGameMode::SaveProgress() const
+{
+	UPawsSaveGame* Save = NewObject<UPawsSaveGame>();
+	Save->Points = Points;
+	Save->PortionsSent = PortionsSent;
+	UGameplayStatics::SaveGameToSlot(Save, SaveSlot, 0);
 }
 
 void APawsGameMode::RequestFeed()
@@ -106,6 +122,7 @@ void APawsGameMode::RequestFeed()
 	{
 		Points -= PointsPerPortion;
 		++PortionsSent;
+		SaveProgress();
 		Message = TEXT("[SİMÜLASYON] Mama döküldü! Afiyet olsun.");
 		return;
 	}
@@ -128,6 +145,7 @@ void APawsGameMode::RequestFeed()
 		{
 			Points -= PointsPerPortion;
 			++PortionsSent;
+			SaveProgress();
 			Message = TEXT("Mama döküldü! Afiyet olsun.");
 		}
 		else if (Code == 429)

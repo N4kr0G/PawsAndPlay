@@ -14,7 +14,7 @@ public:
 	APawsGameMode();
 	virtual void BeginPlay() override;
 
-	void AddPoints(int32 N) { Points += N; }
+	void AddPoints(int32 N) { Points += N; SaveProgress(); }
 	void SpawnKibble();
 	void WatchAd();
 	void RequestFeed();
@@ -42,7 +42,9 @@ public:
 
 private:
 	void OnAdFinished();
+	void SaveProgress() const;
 	FVector SpawnCenter = FVector::ZeroVector;
 	FTimerHandle AdTimer;
+	const FString SaveSlot = TEXT("Paws");
 	double NextAdTime = 0.0;
 };
