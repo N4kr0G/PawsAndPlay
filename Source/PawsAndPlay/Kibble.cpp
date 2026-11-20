@@ -3,6 +3,9 @@
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/RotatingMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystem.h"
+#include "Sound/SoundBase.h"
 #include "UObject/ConstructorHelpers.h"
 
 AKibble::AKibble()
@@ -30,6 +33,11 @@ AKibble::AKibble()
 
 	Spin = CreateDefaultSubobject<URotatingMovementComponent>(TEXT("Spin"));
 	Spin->RotationRate = FRotator(0.f, 120.f, 0.f);
+
+	static ConstructorHelpers::FObjectFinder<USoundBase> Sound(TEXT("/Engine/VREditor/Sounds/UI/Click_on_Button.Click_on_Button"));
+	PickupSound = Sound.Object;
+	static ConstructorHelpers::FObjectFinder<UParticleSystem> FX(TEXT("/Game/StarterContent/Particles/P_Sparks.P_Sparks"));
+	PickupFX = FX.Object;
 }
 
 void AKibble::NotifyActorBeginOverlap(AActor* Other)
@@ -43,6 +51,14 @@ void AKibble::NotifyActorBeginOverlap(AActor* Other)
 	{
 		GM->AddPoints(1);
 		GM->SpawnKibble();
+	}
+	if (PickupSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, PickupSound, GetActorLocation());
+	}
+	if (PickupFX)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), PickupFX, GetActorLocation(), FRotator::ZeroRotator, FVector(0.5f));
 	}
 	Destroy();
 }

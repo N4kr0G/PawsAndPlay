@@ -18,4 +18,6 @@ private:
 	UPROPERTY(VisibleAnywhere) TObjectPtr<class USphereComponent> Sphere;
 	UPROPERTY(VisibleAnywhere) TObjectPtr<class UStaticMeshComponent> Mesh;
 	UPROPERTY(VisibleAnywhere) TObjectPtr<class URotatingMovementComponent> Spin;
+	UPROPERTY(EditDefaultsOnly) TObjectPtr<class USoundBase> PickupSound;
+	UPROPERTY(EditDefaultsOnly) TObjectPtr<class UParticleSystem> PickupFX;
 };
